@@ -44,7 +44,7 @@ function LoginScreen() {
     <div className='flex justify-center items-center min-h-[calc(100vh-90px)]'>
         <form onSubmit={handleSubmit} className='px-10 py-6 bg-slate-200 rounded-lg space-y-4 w-[22rem]'>
             <input 
-                className='block px-4 py-2 bg-slate-50 w-full' 
+                className='block w-full px-4 py-2 bg-slate-50' 
                 type="name" 
                 placeholder='Full Name'
                 onChange={handleChange}
@@ -54,7 +54,7 @@ function LoginScreen() {
             />
 
             <input 
-                className='block px-4 py-2 bg-slate-50 w-full' 
+                className='block w-full px-4 py-2 bg-slate-50' 
                 type="email"
                 onFocus={(e)=>e.target.type = 'text'}
                 onBlur={(e)=>e.target.type = 'email'} 
@@ -67,22 +67,23 @@ function LoginScreen() {
 
             <div className='relative'>
                 <input
-                    className='block px-4 py-2 bg-slate-50 w-full'
+                    className='block w-full px-4 py-2 bg-slate-50'
                     type={showPass ? 'text' : 'password'}
                     placeholder='Password'
                     onChange={handleChange}
                     id='password'
                     value={password}
                     required
+                    autoComplete='new-password'
                 />
                 <span onClick={()=>setShowPass(!showPass)} className='z-4 select-none cursor-pointer absolute uppercase text-[.7rem] top-1/2 -translate-y-1/2 right-2'>show</span>
             </div>
 
-            <button className='px-6 py-2 bg-slate-800 text-slate-200 w-full'>
+            <button className='w-full px-6 py-2 bg-slate-800 text-slate-200'>
                 Register
             </button>
-        <div className='text-end pr-2'>
-            <Link className='tex-lg underline' to={'/login'}>Login</Link>
+        <div className='pr-2 text-end'>
+            <Link className='underline tex-lg' to={'/login'}>Login</Link>
         </div>
         </form>
     </div>

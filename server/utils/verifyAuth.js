@@ -12,6 +12,8 @@ export default function verifyUserAuth(req, res, next) {
                 if(user){
                     if(!req.body.verify){
                         next()
+                    }else{
+                        res.status(200).json({message: "authenticated"})
                     }
                 }else {
                     res.status(500).json({message: 'User not found'})
