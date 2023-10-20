@@ -19,7 +19,8 @@ export default async function getImageUrl (req) {
     const b64 = Buffer.from(req.file.buffer).toString("base64");
     let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
     const data = await uploader.upload(dataURI)
-    return data.url
+    const url = data.url.split('://')[1]
+    return `https://${url}`
 }
 
 export const uploadFile = multer({storage}).single('file')

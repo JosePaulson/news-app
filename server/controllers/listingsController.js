@@ -34,6 +34,8 @@ async function editListing (req, res) {
     if(req.file){
         var imgUrl = await getImageUrl(req)
         recievedData.img = imgUrl
+    }else{
+        delete recievedData.file
     }
     db.collection('listings').updateOne({_id: new ObjectId(req.params.id)}, { $set: {...recievedData}}).then(data=>{
         //for removing delete image from file system(disk storage)
