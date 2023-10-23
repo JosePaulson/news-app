@@ -10,7 +10,7 @@ function AddListingScreen() {
     const [formData, setFormData] = useState({
         headline: "",
         subHeading: "",
-        reporter: cookies ? cookies?.user?.name : '',
+        reporter: cookies?.user?.name,
         content: "",
     })
     const [image, setImage] = useState()

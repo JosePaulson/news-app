@@ -14,15 +14,20 @@ import ListingScreen from './screens/ListingScreen';
 import AddListingScreen from './screens/AddListingScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import AuthRoute from './components/AuthRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/' element={<ListingsScreen/>} />
       <Route path='/:id' element={<ListingScreen/>} />
-      <Route path='/add-listing' element={<AddListingScreen />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
+    
+      <Route path='' element={<AuthRoute />}>
+        <Route path='/add-listing' element={<AddListingScreen />} />
+      </Route>
+
     </Route>
   )
 )
