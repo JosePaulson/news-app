@@ -101,7 +101,7 @@ async function sendResetLink(req, res){
         const token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {
             expiresIn: '3m',
         })
-        const link = 'http://localhost:3000/reset?token='+token+'^'+Date.now().toString()
+        const link = 'https://news-app-kerasoft.vercel.app/reset?token='+token+'^'+Date.now().toString()
     
         const mailOptions = {
           from: 'noreply.thenewsapp@gmail.com',
