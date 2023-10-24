@@ -48,7 +48,14 @@ function Header() {
             <span className='cursor-pointer mr-2 md:mr-4' onClick={()=>document.querySelector('.search').classList.toggle('hidden')}>Search</span>
             {cookies.user && <div className='flex items-center gap-5'>
                 <Link className='underline text-slate-600' to={'/add-listing'}>Add Listing</Link>
-                <span className='hidden font-medium capitalize md:block'>{cookies.user.name}</span>
+                <div onMouseOver={()=>{document.querySelector('.userMenu').classList.remove('hidden')}} onMouseOut={()=>{document.querySelector('.userMenu').classList.add('hidden')}} className='cursor-pointer -mb-[1px] relative hidden font-medium capitalize md:block'>{cookies.user.name}
+                <div className='hidden top-full pt-2.5 userMenu absolute z-[50] rounded-md'>
+                    <div className='px-4 py-1.5 bg-slate-200 text-black font-medium rounded-md text-base w-[7rem] flex flex-col gap-1'>
+                      <Link>Listings</Link>
+                      <Link>Profile</Link>
+                    </div>
+                </div>
+                </div>
                 <button type='button' onClick={handleLogout} className='hidden px-3 py-1 font-medium rounded-md md:block bg-slate-800 text-slate-200'>Logout</button>
             </div>}
             {!cookies?.user && <Link className='hidden md:block px-3 py-1 font-medium rounded-md bg-slate-800 text-slate-200' to={'/login'}>Login/Register</Link>}
@@ -60,7 +67,10 @@ function Header() {
         </div>
         <div className='hidden menu absolute z-[50] rounded-md right-2 bg-slate-200'>
           {cookies.user && <div className='px-4 py-2'>
-            <span className='font-medium capitalize md:hidden'>{cookies.user?.name}</span>
+            <div className='flex flex-col gap-1'>
+              <span className='font-medium capitalize md:hidden'>{cookies.user?.name}</span>
+              <Link className='text-end'>My Listings</Link>
+              </div>
           </div>}
           {cookies.user && <button type='button' onClick={()=>{handleLogout(); document.querySelector('.menu').classList.add('hidden') }} className='w-full px-3 py-1.5 font-medium rounded-b-md md:hidden bg-slate-800 text-slate-200'>Logout</button>}
           {!cookies?.user && <Link onClick={()=>document.querySelector('.menu').classList.add('hidden')} className=' md:hidden px-2.5 py-1 font-medium rounded-md bg-slate-800 text-slate-200' to={'/login'}>Login/Register</Link>}
