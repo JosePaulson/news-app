@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
-function LoginScreen() {
+function RegisterScreen() {
     axios.defaults.withCredentials = true
 
     const [, setCookie] = useCookies()
@@ -90,4 +90,4 @@ function LoginScreen() {
   )
 }
 
-export default LoginScreen
+export default RegisterScreen

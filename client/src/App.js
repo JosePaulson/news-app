@@ -6,6 +6,7 @@ import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import { BASE_URL } from './constants'
 import { ScrollRestoration } from 'react-router-dom'
+import ResetPassword from './components/ResetPassword'
 
 function App() {
   const [cookies, , removeCookie] = useCookies()
@@ -16,11 +17,12 @@ function App() {
     })
   }
   return (
-    <div>
+    <div className='relative'>
       <Header />
       <main className='min-h-[calc(100vh-90px)] px-6 xl:px-0 mx-auto max-w-[1200px]'>
         <Outlet />
       </main>
+      <ResetPassword />
       <Footer />
       <ScrollRestoration />
     </div>

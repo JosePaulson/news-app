@@ -25,6 +25,10 @@ function LoginScreen() {
         })
     }
 
+    function handleReset(){
+        document.querySelector('.resetModal').classList.remove('hidden')
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -52,6 +56,7 @@ function LoginScreen() {
                 id='email'
                 value={email}
                 required
+                autoComplete='false'
             />
 
             <div className='relative'>
@@ -71,7 +76,8 @@ function LoginScreen() {
             <button className='w-full px-6 py-2 bg-slate-800 text-slate-200'>
                 Login
             </button>
-            <div className='pr-2 text-end'>
+            <div className='flex justify-between items-center'>
+                <button type='button' onClick={handleReset} className='italic underline'>Forgot password?</button>
                 <Link className='underline tex-lg' to={'/register'}>Register</Link>
             </div>
         </form>
